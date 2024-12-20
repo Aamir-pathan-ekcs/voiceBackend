@@ -6,6 +6,7 @@ const cors = require('cors');
 const PORT = process.env.PORT || 3000;
 
 app.use(cors());
+app.use(bodyParser.json());
 mongose.connect('mongodb+srv://maakhan:iqMZFeqCyvDlNh72@cluster0.l9s6zof.mongodb.net/voiceBanner')
 .then(()=>{
     console.log('db connected');
@@ -21,7 +22,7 @@ const voiceData = require('./models/dataModel');
 //     })
 // }
 // asd();
-app.get('/voice', function(req, res){
+app.post('/voice', function(req, res){
     const bb = req.body;
     console.log(bb);
 })
