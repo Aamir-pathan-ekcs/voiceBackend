@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Dashboard - Chart</title>
+    <style>
+        .dataTable{
+            max-width: 500px;
+            max-height: 600px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <table class="dataTable">
+        <thead>
+            <tr>
+                <th>Category</th>
+                <th>Total Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr id="row1">
+                <td>Discount 5%</td>
+                <td></td>
+            </tr>
+            <tr id="row2">
+                <td>Discount 10%</td>
+                <td></td>
+            </tr>
+            <tr id="row3">
+                <td>Discount 20%</td>
+                <td></td>
+            </tr>
+            <tr id="row4">
+                <td>Discount 30%</td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+    <br/><br/>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <div id="piechart_3d" style="width: 900px; height: 500px;"></div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Include your script.js file -->
+    <script src="./js/chart.js"></script>
+</body>
+</html>
