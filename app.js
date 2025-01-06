@@ -15,17 +15,15 @@ mongose.connect('mongodb+srv://maakhan:iqMZFeqCyvDlNh72@cluster0.l9s6zof.mongodb
 });
 const voiceData = require('./models/dataModel');
 
-// async function asd() {
-//     await voiceData.create({
-//         name: 'aamir pathan 3',
-//         email: 'pathan@ekc'
-//     })
-// }
-// asd();
 app.post('/voice', function(req, res){
-    const bb = req.body;
-    console.log(bb);
+    const dataForm = req.body;
+    console.log(dataForm);
+    const newVoice = new voiceData(dataForm).save()
+    .then(()=>{
+        res.status(201).json({Message: 'data saved successfylly'})
+    }).catch((err)=>res.status(500).json({error : err.message}));
 })
+
 app.listen(PORT, ()=>{
     console.log('app running');
 })
