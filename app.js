@@ -18,7 +18,8 @@ const voiceData = require('./models/dataModel');
 app.post('/voice', function(req, res){
     const dataForm = req.body;
     console.log(dataForm);
-    const newVoice = new voiceData(dataForm).save()
+    const newVoice = new voiceData(dataForm);
+    newVoice.save()
     .then(()=>{
         res.status(201).json({Message: 'data saved successfylly'})
     }).catch((err)=>res.status(500).json({error : err.message}));
