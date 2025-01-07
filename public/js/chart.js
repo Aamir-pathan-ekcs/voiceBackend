@@ -4,13 +4,13 @@ document.addEventListener('DOMContentLoaded', function () {
             var percentages = {};
             const response = await fetch('/promoCodeCount');
             const data = await response.json();
-            console.log(data);
             const getVl = [
-                data.five?.length || 0,
-                data.ten?.length || 0,
-                data.twenty?.length || 0,
-                data.thirty?.length || 0,
+                data.five || 0,
+                data.ten|| 0,
+                data.twenty || 0,
+                data.thirty || 0,
             ];
+            console.log(getVl);
             const rows = ['row1', 'row2', 'row3', 'row4'];
             let valueGet = 0;
             function updateCell(){
@@ -31,40 +31,40 @@ document.addEventListener('DOMContentLoaded', function () {
                         break;
                     }
                 }
-               const totalNumber = getVl.reduce((sum, count) => sum + count, 0);
-               rows.forEach( rows =>{
-                const row = document.querySelector(`#${rows}`);
-                if(row){
-                    let sum = 0;
-                    for(let i = 1; i < row.cells.length-1; i++){
-                        const cell = row.cells[i];
-                        if(cell){
-                            const valueGet = parseFloat(cell.textContent);
-                            if(!isNaN(valueGet)){
-                                sum += valueGet;
-                            }
+            //    const totalNumber = getVl.reduce((sum, count) => sum + count, 0);
+            //    rows.forEach( rows =>{
+            //     const row = document.querySelector(`#${rows}`);
+            //     if(row){
+            //         let sum = 0;
+            //         for(let i = 1; i < row.cells.length-1; i++){
+            //             const cell = row.cells[i];
+            //             if(cell){
+            //                 const valueGet = parseFloat(cell.textContent);
+            //                 if(!isNaN(valueGet)){
+            //                     sum += valueGet;
+            //                 }
 
-                        }
-                    }
-                    const lastTd = row.cells[row.cells.length - 1];
-                    if(lastTd){
-                        lastTd.textContent = sum;
-                        const percentage = ((sum / totalNumber) * 100).toFixed(1);
-                        percentages[rows] = parseFloat(percentage);
-                        // console.log(percentage);
-                    //     lastTd.textContent = percentage + '%';
-                    }
-                }
-               });
+            //             }
+            //         }
+            //         const lastTd = row.cells[row.cells.length - 1];
+            //         if(lastTd){
+            //             lastTd.textContent = sum;
+            //             const percentage = ((sum / totalNumber) * 100).toFixed(1);
+            //             percentages[rows] = parseFloat(percentage);
+            //             // console.log(percentage);
+            //         //     lastTd.textContent = percentage + '%';
+            //         }
+            //     }
+            //    });
                drawChart();
             }
             function drawChart() {
               var data = google.visualization.arrayToDataTable([
                 ['Task', 'Percentage'],
-                ['Mental Health', percentages['row1'] || 0],
-                ['Physical Fitness', percentages['row2'] || 0],
-                ['Nutrition', percentages['row3'] || 0],
-                ['Mindfulness', percentages['row4'] || 0],
+                ['Discount 5%', percentages['row1'] || 0],
+                ['Discount 10%', percentages['row2'] || 0],
+                ['Discount 20%', percentages['row3'] || 0],
+                ['Discount 30%', percentages['row4'] || 0],
               ]);
       
               var options = {
