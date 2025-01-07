@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 data.twenty || 0,
                 data.thirty || 0,
             ];
-            console.log(getVl);
+            // console.log(getVl);
             const rows = ['row1', 'row2', 'row3', 'row4'];
             let valueGet = 0;
             function updateCell(){

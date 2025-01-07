@@ -23,7 +23,7 @@ app.get('/dashboard', (req, res)=>{
 
 app.post('/voice', function(req, res){
     const dataForm = req.body;
-    console.log(dataForm);
+    // console.log(dataForm);
     const newVoice = new voiceData(dataForm);
     newVoice.save()
     .then(()=>{
