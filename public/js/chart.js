@@ -31,31 +31,31 @@ document.addEventListener('DOMContentLoaded', function () {
                         break;
                     }
                 }
-               const totalNumber = getVl.reduce((sum, count) => sum + count, 0);
-               rows.forEach( rows =>{
-                const row = document.querySelector(`#${rows}`);
-                if(row){
-                    let sum = 0;
-                    // for(let i = 1; i < row.cells.length-1; i++){
-                    //     const cell = row.cells[i];
-                    //     if(cell){
-                    //         const valueGet = parseFloat(cell.textContent);
-                    //         if(!isNaN(valueGet)){
-                    //             sum += valueGet;
-                    //         }
+            //    const totalNumber = getVl.reduce((sum, count) => sum + count, 0);
+            //    rows.forEach( rows =>{
+            //     const row = document.querySelector(`#${rows}`);
+            //     if(row){
+            //         let sum = 0;
+            //         for(let i = 1; i < row.cells.length-1; i++){
+            //             const cell = row.cells[i];
+            //             if(cell){
+            //                 const valueGet = parseFloat(cell.textContent);
+            //                 if(!isNaN(valueGet)){
+            //                     sum += valueGet;
+            //                 }
 
-                    //     }
-                    // }
-                    const lastTd = row.cells[row.cells.length - 1];
-                    if(lastTd){
-                        lastTd.textContent = sum;
-                        const percentage = ((sum / totalNumber) * 100).toFixed(1);
-                        percentages[rows] = parseFloat(percentage);
-                        // console.log(percentage);
-                    //     lastTd.textContent = percentage + '%';
-                    }
-                }
-               });
+            //             }
+            //         }
+            //         const lastTd = row.cells[row.cells.length - 1];
+            //         if(lastTd){
+            //             lastTd.textContent = sum;
+            //             const percentage = ((sum / totalNumber) * 100).toFixed(1);
+            //             percentages[rows] = parseFloat(percentage);
+            //             // console.log(percentage);
+            //         //     lastTd.textContent = percentage + '%';
+            //         }
+            //     }
+            //    });
                drawChart();
             }
             function drawChart() {
