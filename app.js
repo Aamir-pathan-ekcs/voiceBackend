@@ -19,6 +19,15 @@ const voiceData = require('./models/dataModel');
 
 app.get('/dashboard', (req, res)=>{
     res.sendFile(path.join(__dirname, 'public', 'chart', 'index.html'));
+});
+
+app.get('/users', (req, res)=>{
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+})
+
+app.get('/userDetails', async(req, res)=>{
+    const users = await voiceData.find();
+    res.status(200).json(users);
 })
 
 app.post('/voice', function(req, res){
